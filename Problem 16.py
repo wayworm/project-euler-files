@@ -3,9 +3,15 @@
 #The sum of its digits is 3 + 2 + 7 + 6 + 8 = 26
 #What is the sum of the digits of 2^1000
 
-import numpy as np
+#Simple problem, but of a technical hiccup, if you use numpy you get an overflow error for high exponent values,
 
-val = np.power(2,8)
-print(val)
+#default python power operation doesn't have this problem.
 
-print("Hello")
+val = 2**1000
+
+sum = 0
+#print(val)
+for i in str(val):
+    sum += int(i)
+
+print(sum)

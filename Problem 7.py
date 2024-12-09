@@ -176,9 +176,5 @@ primes = []
 
 myprimes = best_primer(primes,10003)
 
-print(myprimes[9999:10004]) # I think we want index 10002, item 3
+print(myprimes[9999:10004]) # I think we want index 10001, item 2
 
-
-f = open("primes.txt", "a")
-f.write(myprimes)
-f.close()
