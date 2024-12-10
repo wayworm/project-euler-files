@@ -13,10 +13,6 @@
 # How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
 
 
-import numpy as np
-
-
-
 # New approach:
 
 # I did some research and there is quite a simple pattern:
@@ -27,11 +23,11 @@ import numpy as np
 # (old approach commented below)
 
 
-zero_year = ["monday","thursday","thursday","sunday","tuesday","friday","sunday","wednesday","saturday","monday","thursday","saturday"]
+zero_year = ["monday","thursday","thursday","sunday","tuesday","friday","sunday",
+             "wednesday","saturday","monday","thursday","saturday"]
 
 
 def first_of_month(start,end, zero_year):
-
     day = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]
     current_year = [None]*12
     previous_year = zero_year
@@ -40,7 +36,7 @@ def first_of_month(start,end, zero_year):
     years=[]
 
     for year in range(start,end+1):
-        for i in range(0,12):
+        for i in range(12):
             
             #leap year logic
             if (year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)) == True:
@@ -54,7 +50,7 @@ def first_of_month(start,end, zero_year):
 
             #non-leap years
             else:
-                for j in range(0,7):
+                for j in range(7):
                     try:
                         if previous_year[i] == day[j]:
                             current_year[i] = day[j+rule]
@@ -85,6 +81,9 @@ def sunday_sum(years):
 #Currently get wrong answer, I didn't consider that 2000 is a leap year maybe?
 
 print(sunday_sum(first_of_month(1901,2000,zero_year)))
+
+
+
 
 
 
